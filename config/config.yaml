@@ -1,0 +1,9 @@
+mysql:
+  name: reporl
+  host: localhost
+  port: 3306
+  username: root
+  password: root
+file:
+  path: ["/reporl/xxxx.list","/reporl/xxxx2.list"]
+
