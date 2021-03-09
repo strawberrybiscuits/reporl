@@ -15,7 +15,7 @@ var Db *gorm.DB
 type Config struct{
 	
 	DbConfig Database `yaml:"mysql"`
-	
+	FilePathsConfig FilePaths `yaml:"file"`
 }
 
 type Database struct{
@@ -23,10 +23,17 @@ type Database struct{
 	Name string `yaml:"name"`
 	Host string `yaml:"host"`
 	Port string `yaml:"port"`
-	Username string `yaml:username`
-	Password string `yaml:password`
+	Username string `yaml:"username"`
+	Password string `yaml:"password"`
 	
 } 
+
+type FilePaths struct{
+	
+	Paths []string `yaml:"path"`
+	
+	
+}
 
 var conf = &Config{}
 
