@@ -10,7 +10,9 @@ import(
 )
 
 const yamlPath string = "./config/config.yaml"
+var conf = &Config{}
 var Db *gorm.DB
+var FPaths FilePaths
 
 type Config struct{
 	
@@ -35,7 +37,7 @@ type FilePaths struct{
 	
 }
 
-var conf = &Config{}
+
 
 
 func ReadYamlConfig(path string,config *Config)  error{
@@ -63,7 +65,7 @@ func init(){
 func Setup(){
 	
 	dbSetup()
-	
+	filePathSetup()
 	
 }
 
@@ -84,5 +86,11 @@ func dbSetup(){
 	Db.DB().SetMaxIdleConns(10)
 	Db.DB().SetMaxOpenConns(100)
 	
+	
+}
+
+func filePathSetup(){
+	
+	FPaths = conf.FilePathsConfig
 	
 }

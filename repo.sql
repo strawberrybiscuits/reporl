@@ -8,7 +8,7 @@ CREATE TABLE `repo_rl` (
   `title` varchar(255) NOT NULL,
   `link` varchar(512) NOT NULL,
   `description` varchar(512) NOT NULL COMMENT 'content tag',
-  `createTime` datetime NOT NULL,
+  `createTime` datetime NOT NULL COMMENT 'release time',
   `simpleName` varchar(255) NOT NULL COMMENT 'shiro',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

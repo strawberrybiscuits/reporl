@@ -5,5 +5,5 @@ mysql:
   username: root
   password: root
 file:
-  path: ["../repo.list"]
+  path: ["./repo/repo.txt","./repo/repo2.txt"]
 

@@ -1,0 +1,3 @@
+/d/foo
+/e/bar
+/f/baz

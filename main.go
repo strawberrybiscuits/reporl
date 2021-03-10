@@ -2,7 +2,7 @@ package main
 
 import(
 	"reporl/config"
-	
+	"reporl/util"
 )
 
 func init(){
@@ -13,6 +13,6 @@ func init(){
 
 func main(){
 	
-
+		util.TestReadRepos()
 	
 }
