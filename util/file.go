@@ -21,7 +21,7 @@ func ReadFiles(filepaths []string) (arr []string){
 	for _,v := range filepaths{
 		
 		waitGroup.Add(1)
-		go func(val []string){
+		go func(val string){
 			result := ReadFile(val)
 			lock.Lock()
 			arr = append(arr,result...)
