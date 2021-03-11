@@ -21,13 +21,13 @@ func ReadFiles(filepaths []string) (arr []string){
 	for _,v := range filepaths{
 		
 		waitGroup.Add(1)
-		go func(array []string){
+		go func(val []string){
 			lock.Lock()
-			arr = append(arr,ReadFile(v)...)
+			arr = append(arr,ReadFile(val)...)
 			lock.Unlock()
 			defer waitGroup.Done()
 			
-		}(arr)
+		}(v)
 		
 	}
 	
