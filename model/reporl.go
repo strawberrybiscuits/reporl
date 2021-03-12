@@ -68,7 +68,7 @@ func GetReposByRepoName(repoName string) (repos []Repo_rl,err error){
 }
 
 // 获取RepoName最新仓库
-func GetLatestRepoByRepoName(repoName string) (repo Repo_rl, err error){
+func GetLatestRepoByRepoName(repoName string) (repo *Repo_rl, err error){
 	
 	if err = db.Where("repoName = ?",repoName).Order("id desc").Limit(1).Find(&repo).Error; err != nil{
 		return nil,err

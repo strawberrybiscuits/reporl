@@ -2,6 +2,7 @@
 git repo release rss from list by go project
 
 achieve release compare from the latest time with the time stored in database
+aotu send mail service
 
 # v1.0 
 
