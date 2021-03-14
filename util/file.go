@@ -64,6 +64,16 @@ func ReadFile(filepath string) (arr []string){
 	
 }
 
+func ReadRepos() []string{
+	
+	
+	
+	return ReadFiles(config.FPaths.Paths)
+	
+	
+}
+
+
 func TestReadRepos(){
 	
 	

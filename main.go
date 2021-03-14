@@ -1,8 +1,13 @@
 package main
 
+import (
+	"log"
+	"fmt"
+)
+
 import(
 	"reporl/config"
-	"reporl/util"
+	"reporl/service"
 )
 
 func init(){
@@ -13,6 +18,10 @@ func init(){
 
 func main(){
 	
-		util.TestReadRepos()
-	
+	err := service.SaveRepoRssFromFile()
+	if err != nil{
+		
+		log.Fatalf(fmt.Sprintf("error:%s",err))
+		
+	}
 }

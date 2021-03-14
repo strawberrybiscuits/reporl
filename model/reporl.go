@@ -1,12 +1,12 @@
 package model
 
 import (
-	"reporl/config"
+    "reporl/config"
 	"time"
-	"github.com/jinzhu/gorm"
+	
 )
 
-var db *gorm.DB = config.Db
+
 
 type Repo_rl struct{
 	
@@ -22,7 +22,7 @@ type Repo_rl struct{
 
 func AddRepo(repo Repo_rl) (err error){
 	
-	if err = db.Create(&repo).Error; err != nil{
+	if err = config.Db.Create(&repo).Error; err != nil{
 		return err
 	}
 	
@@ -45,7 +45,7 @@ func AddRepos(repos []Repo_rl)(err error){
 
 func GetAllRepos() (repos []Repo_rl,err error){
 	
-	if err = db.Find(&repos).Error; err != nil{
+	if err = config.Db.Find(&repos).Error; err != nil{
 		
 		return nil,err
 	}
@@ -58,7 +58,7 @@ func GetAllRepos() (repos []Repo_rl,err error){
 // repoName : "/abc/bcd"
 func GetReposByRepoName(repoName string) (repos []Repo_rl,err error){
 	
-	if err = db.Where("repoName = ?", repoName).Find(&repos).Error; err != nil{
+	if err = config.Db.Where("repoName = ?", repoName).Find(&repos).Error; err != nil{
 		
 		return nil, err
 	}
@@ -70,7 +70,7 @@ func GetReposByRepoName(repoName string) (repos []Repo_rl,err error){
 // 获取RepoName最新仓库
 func GetLatestRepoByRepoName(repoName string) (repo *Repo_rl, err error){
 	
-	if err = db.Where("repoName = ?",repoName).Order("id desc").Limit(1).Find(&repo).Error; err != nil{
+	if err = config.Db.Where("repoName = ?",repoName).Order("id desc").Limit(1).Find(&repo).Error; err != nil{
 		return nil,err
 	}
 	
