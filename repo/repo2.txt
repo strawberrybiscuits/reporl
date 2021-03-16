@@ -1,3 +1,2 @@
-/d/foo
-/e/bar
-/f/baz
+/FasterXML/jackson
+/alibaba/fastjson

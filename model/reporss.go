@@ -1,15 +1,16 @@
 package model
 
 import (
+
 	"reporl/config"
 )
 
 type Repo_rss struct{
 	
 	Id int `json:"-" gorm:"primary_key"`
-	RepoUrl string `json:"repoUrl"`
-	RepoName string `json:"repoName"`
-	SimpleName string `json:"simpleName"`
+	RepoUrl string `gorm:"column:repoUrl" json:"repoUrl"`
+	RepoName string `gorm:"column:repoName" json:"repoName"`
+	SimpleName string `gorm:"column:simpleName" json:"simpleName"` 
 	
 }
 
@@ -62,4 +63,21 @@ func GetRepoRssAddressBySimpleName(name string)(url string, err error){
 	url = reporss.RepoUrl
 	return 
 	
+}
+
+func GetAllRepoRssAddress()(url []string, err error){
+	
+	var reporss []Repo_rss
+
+	if err = config.Db.Select("repoUrl").Find(&reporss).Error; err != nil{
+		return 
+	}
+	
+	 for _,v := range reporss{
+
+	 	url = append(url, v.RepoUrl)
+	 }
+	
+
+	return
 }

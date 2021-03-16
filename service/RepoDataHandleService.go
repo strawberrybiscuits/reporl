@@ -32,12 +32,48 @@ func SaveRepoRssFromFile() (err error){
 	
 	err = model.AddReposRss(repos)
 	
-	return err
+	return
 }
 
-func SaveRepoReleasesInformationToDb(reporl model.Repo_rl) (err error){
+
+func SaveAllRepoReleases()(err error){
 	
+	// get all repoUrls from db then 
+	repoUrls,err := model.GetAllRepoRssAddress()
 	
+	if err != nil{
+		return
+	}
+	
+	err = SaveReposReleasesInformationToDb(repoUrls)
+	
+	if err != nil{
+		
+		return
+	}
+	
+	return
+	
+}
+
+func SaveReposReleasesInformationToDb(repoUrls []string) (err error){
+	
+	for _,v := range repoUrls{
+		
+		err = SaveRepoReleasesInformationToDb(v)
+		
+	}
+	
+	return
+	
+}
+
+
+func SaveRepoReleasesInformationToDb(repoUrl string) (err error){
+	
+	reporls := util.GetRepoReleases(repoUrl)
+	
+	err = model.AddRepos(reporls)
 	
 	return
 }

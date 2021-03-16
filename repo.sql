@@ -7,11 +7,13 @@ CREATE TABLE `repo_rl` (
   `repoName` varchar(255) NOT NULL COMMENT '/apache/shiro',
   `title` varchar(255) NOT NULL,
   `link` varchar(512) NOT NULL,
-  `description` varchar(512) NOT NULL COMMENT 'content tag',
-  `createTime` datetime NOT NULL COMMENT 'release time',
+  `description` text NOT NULL COMMENT 'content tag',
+  `createTime` datetime NOT NULL,
   `simpleName` varchar(255) NOT NULL COMMENT 'shiro',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `link` (`link`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
 /*
 存放rss订阅仓库信息
 */

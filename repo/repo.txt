@@ -1,3 +1,2 @@
-/a/tmp
-/b/ord
-/c/zzz
+/apache/shiro
+/x-stream/xstream

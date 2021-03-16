@@ -11,15 +11,16 @@ import (
 type Repo_rl struct{
 	
 	Id int `json:"-" gorm:"primary_key"`
-	RepoName string `json:"repoName"`
+	RepoName string `gorm:"column:repoName" json:"repoName"`
 	Title string `json:"title"`
 	Link string `json:"link"`
 	Description string `json:"description"`
-	SimpleName string `json:"simpleName"`
-	CreateTime time.Time `json:"releaseTime"`
+	SimpleName string `gorm:"column:simpleName" json:"simpleName"`
+	CreateTime time.Time `gorm:"column:createTime" json:"releaseTime"`
 	
 }
 
+// 这里直接用唯一索引约束Link
 func AddRepo(repo Repo_rl) (err error){
 	
 	if err = config.Db.Create(&repo).Error; err != nil{

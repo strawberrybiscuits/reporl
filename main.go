@@ -8,6 +8,7 @@ import (
 import(
 	"reporl/config"
 	"reporl/service"
+	
 )
 
 func init(){
@@ -24,4 +25,14 @@ func main(){
 		log.Fatalf(fmt.Sprintf("error:%s",err))
 		
 	}
+	
+	err = service.SaveAllRepoReleases()
+	
+	if err != nil{
+		
+		log.Fatalf(fmt.Sprintf("error:%s",err))
+		
+	}
+	
+	
 }

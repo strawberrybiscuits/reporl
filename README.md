@@ -8,6 +8,10 @@ aotu send mail service
 
 	CLI 
 	
+	2021-3-16 save informations into database
+	![reporss](./imgs/reporss.png)
+	![reporl](./imgs/reporl.png)
+	
 # v2.0
 
 	provide webservices
